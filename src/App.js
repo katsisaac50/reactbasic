@@ -6,7 +6,10 @@ function App() {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
-console.log(email)
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(email, password);
+}
 
   return (
     <div className="Container">
@@ -14,10 +17,12 @@ console.log(email)
      <br/>
      <div className='row'>
      <div className='col-md-6 offset-3'>
-     <form>
+     <form onSubmit={handleSubmit}>
      <div className='mb-3'>
      <label className='form-label'>Enter Email</label>
-     <input autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} type="text" className='form-control'/>
+     <input autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} 
+     type="text" className='form-control'
+     />
      <div className='form-text'>
      we'll never share your email with anyone else.
      </div>
