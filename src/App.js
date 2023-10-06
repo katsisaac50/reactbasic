@@ -6,6 +6,7 @@ import Button from './components/Button';
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState('');
+  const [loading, setLoading] = useState(true);
 
   console.log(posts)
 
@@ -19,14 +20,17 @@ function App() {
       method: 'GET',
     })
     .then(res => res.json())
-    .then(data => setUsers(data));
+    .then(data => {setUsers(data);});
   }
 
   const fetchPostsData = () => {
     fetch('https://jsonplaceholder.typicode.com/posts', {
       method: 'GET',
-    }).then(res => res.json()).then(data => setPosts(data));
+    }).then(res => res.json()).then(data => {setPosts(data); setLoading(false);});
   }
+  if(loading){
+    return <h1>Loading...</h1>
+  } 
   return(
     <div className="Container">
     {users.map((user) => (
