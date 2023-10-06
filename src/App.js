@@ -1,10 +1,18 @@
 
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import Button from './components/Button';
 
 function App() {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState('');
+
+  console.log(posts)
+
+  useEffect(() => {
+    fetchPostsData();
+    // fetchUsersData();
+  })
 
   const fetchUsersData = () => {
     fetch('https://jsonplaceholder.typicode.com/users', {
@@ -12,6 +20,12 @@ function App() {
     })
     .then(res => res.json())
     .then(data => setUsers(data));
+  }
+
+  const fetchPostsData = () => {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'GET',
+    }).then(res => res.json()).then(data => setPosts(data));
   }
   return(
     <div className="Container">
@@ -21,8 +35,10 @@ function App() {
       </div>
       
     ))}
-    {console.log(users)}
-    <button onClick={fetchUsersData}>Fetch Users</button>
+    <div className='col-md-6 offset-3'>
+    <h1 className='display-4 '>{posts.title}</h1>
+    </div>
+    <Button fetchUsersData={fetchUsersData}/>
     </div>
   )
 }
