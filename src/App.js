@@ -3,10 +3,12 @@ import Home from './pages/Home';
 import Contacts from './pages/Contacts';
 import About from './pages/About';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <BrowserRouter>
+      <Nav />
 
      {/*  <Routes>
         <Route path='/' element={<Home />} />
