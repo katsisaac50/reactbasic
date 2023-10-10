@@ -1,5 +1,7 @@
 
 import Home from './pages/Home';
+import Contacts from './pages/Contacts';
+import About from './pages/About';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -11,7 +13,11 @@ function App() {
       </Routes> */}
       <Routes>
       <Route path='/' Component={Home} exact  />
+      <Route path='/contacts' Component={Contacts} exact  />
+      <Route path='/' Component={About} exact  />
       </Routes>
+      
+      
         
       
     </BrowserRouter>
