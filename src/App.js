@@ -16,7 +16,7 @@ function App() {
       <Routes>
       <Route path='/' Component={Home} exact  />
       <Route path='/contacts' Component={Contacts} exact  />
-      <Route path='/' Component={About} exact  />
+      <Route path='/about' Component={About} exact  />
       </Routes>
       
       
